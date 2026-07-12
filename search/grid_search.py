@@ -263,7 +263,7 @@ def run_grid_search(config: dict) -> None:
     best_model = BertForSequenceClassification.from_pretrained(
         best_run['model_path']
     )
-    best_path = os.path.join(output_dir, 'best_model')
+    best_path = os.path.join(config['PATHS']['output_dir'], 'best_model')
     save_checkpoint(best_model, tokenizer, best_path)
     logger.info("Best model saved: %s", best_path)
 
