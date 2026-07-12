@@ -7,5 +7,21 @@ __pycache__/
 # Jupyter checkpoints
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
+
+# Data
 data/
-outputs/
+
+# Ignore all outputs
+outputs/*
+
+# Allow the bert_hatespeech directory itself
+!outputs/bert_hatespeech/
+
+# Ignore everything inside bert_hatespeech
+outputs/bert_hatespeech/*
+
+# Allow only best_model
+!outputs/bert_hatespeech/best_model/
+
+# Allow everything inside best_model
+!outputs/bert_hatespeech/best_model/**
