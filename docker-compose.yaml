@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+
+  # Service 1: FastAPI
+  api:
+    build: .
+    container_name: hate_speech_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./outputs/bert_hatespeech/search_20260412_182502/best_model:/app/outputs/bert_hatespeech/search_20260412_182502/best_model
+    command: uvicorn app:app --host 0.0.0.0 --port 8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Service 2: Streamlit (the web interface)
+  streamlit:
+    build: .
+    container_name: hate_speech_ui
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    environment:
+      - API_URL=http://api:8000/predict
+    command: streamlit run streamlit_app.py --server.port 8501 --server.address 0.0.0.0

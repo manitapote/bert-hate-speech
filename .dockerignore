@@ -1,0 +1,27 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Git
+.git/
+.gitignore
+
+# Training data — not needed for inference
+data/
+
+# Training artifacts — only keep best_model
+outputs/bert_hatespeech/search_20260412_182502/stage1/
+outputs/bert_hatespeech/search_20260412_182502/stage2/
+outputs/bert_hatespeech/search_20260412_182502/search_results.csv
+outputs/bert_hatespeech/search_20260412_182502/training.log
+
+# Logs
+*.log
+
+# Docs
+README.md
