@@ -6,7 +6,7 @@ from transformers import BertForSequenceClassification, BertTokenizer
 app = FastAPI(title="Hate Speech Detection API")
 
 # Point to your exact model path
-MODEL_PATH = "outputs/bert_hatespeech/search_20260412_182502/best_model"
+MODEL_PATH = "outputs/bert_hatespeech/best_model"
 
 print(f"Loading model from {MODEL_PATH}...")
 tokenizer = BertTokenizer.from_pretrained(MODEL_PATH)
